@@ -25,22 +25,22 @@ function lambdaResponse({
   const response: Response = {
     statusCode,
     body: JSON.stringify(json),
-  };
+  }
 
   if (allowCORS) {
     response.headers = {
       'Access-Control-Allow-Origin': '*',
-    };
+    }
   }
 
-  return response;
+  return response
 }
 
 export function errorResponse(json: JSON): Response {
   return lambdaResponse({
     json,
     statusCode: 500,
-  });
+  })
 }
 
 export function corsErrorResponse(json: JSON): Response {
@@ -48,14 +48,14 @@ export function corsErrorResponse(json: JSON): Response {
     json,
     statusCode: 500,
     allowCORS: true,
-  });
+  })
 }
 
 export function successResponse(json: JSON): Response {
   return lambdaResponse({
     json,
     statusCode: 200,
-  });
+  })
 }
 
 export function corsSuccessResponse(json: JSON): Response {
@@ -63,5 +63,5 @@ export function corsSuccessResponse(json: JSON): Response {
     json,
     statusCode: 200,
     allowCORS: true,
-  });
+  })
 }

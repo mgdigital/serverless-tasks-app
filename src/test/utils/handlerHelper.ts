@@ -13,6 +13,6 @@ const context = {
   getRemainingTimeInMillis: jest.fn(),
   callbackWaitsForEmptyEventLoop: true,
   invokedFunctionArn: '',
-};
+}
 
-export default context;
+export default context

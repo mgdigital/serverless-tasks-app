@@ -6,5 +6,8 @@ module.exports = {
     sourceType: 'module',
   },
   env: { jest: true, browser: true, node: true },
-  rules: { 'no-console': 'warn' },
+  rules: { 
+    'no-console': 'warn',
+    '@typescript-eslint/semi': ['error', 'never']
+  },
 };
