@@ -12,11 +12,9 @@
     "lint:fix": "yarn lint --fix",
     "serve": "sls offline",
     "serve:watch": "nodemon -e js,ts,jsx,tsx -x yarn serve",
-    "tail:hello": "sls logs --function hello --tail",
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "sls webpack",
-    "watch:hello": "sls invoke local --watch --function hello --path fixtures/event.json",
     "db:initialize": "node scripts/initializeDB.js"
   },
   "dependencies": {
