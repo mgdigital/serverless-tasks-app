@@ -8,13 +8,13 @@ import { taskService } from './services'
 dotenv.config({ path: './.env' })
 
 const deleteTaskLists = createHandler(
-  schemas.idsParam,
-  taskService.deleteTaskLists.bind(taskService)
+  schemas.idParam,
+  taskService.deleteTaskList.bind(taskService)
 )
 
 const deleteTasks = createHandler(
-  schemas.idsParam,
-  taskService.deleteTasks.bind(taskService)
+  schemas.idParam,
+  taskService.deleteTask.bind(taskService)
 )
 
 const getTask = createHandler(

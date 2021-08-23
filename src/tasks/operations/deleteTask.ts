@@ -1,12 +1,12 @@
-import type { ClientProvider, DeleteTasksHandler } from '../types'
+import type { ClientProvider, DeleteTaskHandler } from '../types'
 import * as queries from '../queries'
 
 const deleteTasks = (
   withClient: ClientProvider
-): DeleteTasksHandler =>
+): DeleteTaskHandler =>
   async request =>
     withClient(async client => {
-      await client.query(queries.deleteTasks(request))
+      await client.query(queries.deleteTasks({ ids: [request.id] }))
     })
 
 export default deleteTasks

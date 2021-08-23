@@ -45,7 +45,7 @@ export type PutTaskRequest = {
   removeFromLists?: string[]
 }
 
-export type DeleteTasksRequest = IdsParam
+export type DeleteTaskRequest = IdParam
 
 export type GetTaskListRequest = IdParam
 
@@ -56,20 +56,20 @@ export type PutTaskListRequest = {
   tasksToRemove?: string[]
 }
 
-export type DeleteTaskListsRequest = IdsParam
+export type DeleteTaskListRequest = IdParam
 
 export type GetTaskHandler = (request: GetTaskRequest) => Promise<TaskWithTaskLists>
 export type PutTaskHandler = (request: PutTaskRequest) => Promise<TaskWithTaskLists>
-export type DeleteTasksHandler = (request: DeleteTasksRequest) => Promise<void>
+export type DeleteTaskHandler = (request: DeleteTaskRequest) => Promise<void>
 export type GetTaskListHandler = (request: GetTaskListRequest) => Promise<TaskListWithTasks>
 export type PutTaskListHandler = (request: PutTaskListRequest) => Promise<TaskListWithTasks>
-export type DeleteTaskListsHandler = (request: DeleteTaskListsRequest) => Promise<void>
+export type DeleteTaskListHandler = (request: DeleteTaskListRequest) => Promise<void>
 
 export type TaskService = {
   getTask: GetTaskHandler
   putTask: PutTaskHandler
-  deleteTasks: DeleteTasksHandler
+  deleteTask: DeleteTaskHandler
   getTaskList: GetTaskListHandler
   putTaskList: PutTaskListHandler
-  deleteTaskLists: DeleteTaskListsHandler
+  deleteTaskList: DeleteTaskListHandler
 }

@@ -1,5 +1,5 @@
 import type { JSONSchemaType } from 'ajv'
-import type { IdParam, IdsParam, PutTaskListRequest, PutTaskRequest } from '../tasks/types'
+import type { IdParam, PutTaskListRequest, PutTaskRequest } from '../tasks/types'
 
 export const idParam: JSONSchemaType<IdParam> = {
   type: 'object',
@@ -11,24 +11,6 @@ export const idParam: JSONSchemaType<IdParam> = {
   },
   required: [
     'id'
-  ],
-  additionalProperties: false
-}
-
-export const idsParam: JSONSchemaType<IdsParam> = {
-  type: 'object',
-  properties: {
-    ids: {
-      type: 'array',
-      items: {
-        type: 'string',
-        minLength: 1
-      },
-      minItems: 1
-    }
-  },
-  required: [
-    'ids'
   ],
   additionalProperties: false
 }

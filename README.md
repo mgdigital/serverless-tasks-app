@@ -33,10 +33,9 @@ curl --location --request PUT 'localhost:3000/dev/task-lists' \
 ### Update a task's title and status, and add it to a list
 
 ```sh
-curl --location --request PUT 'localhost:3000/dev/tasks' \
+curl --location --request PUT 'localhost:3000/dev/tasks/4940616c-b973-4662-b34c-f52fd8da44de' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "4940616c-b973-4662-b34c-f52fd8da44de",
     "title": "My renamed task",
     "status": "IN_PROGRESS",
     "addToLists": ["d082dc01-d24a-4efd-a705-c45bb58ec0c5"]
@@ -46,12 +45,18 @@ curl --location --request PUT 'localhost:3000/dev/tasks' \
 ### Remove a task from a list
 
 ```sh
-curl --location --request PUT 'localhost:3000/dev/tasks' \
+curl --location --request PUT 'localhost:3000/dev/tasks/4940616c-b973-4662-b34c-f52fd8da44de' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "4940616c-b973-4662-b34c-f52fd8da44de",
     "removeFromLists": ["d082dc01-d24a-4efd-a705-c45bb58ec0c5"]
 }'
+```
+
+### Delete a task
+
+```sh
+curl --location --request DELETE 'localhost:3000/dev/tasks/4940616c-b973-4662-b34c-f52fd8da44de' \
+--data-raw ''
 ```
 
 ## Notes

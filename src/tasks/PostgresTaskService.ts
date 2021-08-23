@@ -1,7 +1,7 @@
 import type {
   ClientProvider,
-  DeleteTaskListsRequest,
-  DeleteTasksRequest,
+  DeleteTaskListRequest,
+  DeleteTaskRequest,
   GetTaskListRequest,
   GetTaskRequest,
   PutTaskListRequest,
@@ -10,8 +10,8 @@ import type {
   TaskService,
   TaskWithTaskLists
 } from './types'
-import deleteTaskLists from './operations/deleteTaskLists'
-import deleteTasks from './operations/deleteTasks'
+import deleteTaskLists from './operations/deleteTaskList'
+import deleteTasks from './operations/deleteTask'
 import getTask from './operations/getTask'
 import getTaskList from './operations/getTaskList'
 import putTask from './operations/putTask'
@@ -32,7 +32,7 @@ class PostgresTaskService implements TaskService {
     return getTask(this.clientProvider)(request)
   }
 
-  async deleteTasks (request: DeleteTasksRequest): Promise<void> {
+  async deleteTask (request: DeleteTaskRequest): Promise<void> {
     return deleteTasks(this.clientProvider)(request)
   }
 
@@ -44,7 +44,7 @@ class PostgresTaskService implements TaskService {
     return getTaskList(this.clientProvider)(request)
   }
 
-  async deleteTaskLists (request: DeleteTaskListsRequest): Promise<void> {
+  async deleteTaskList (request: DeleteTaskListRequest): Promise<void> {
     return deleteTaskLists(this.clientProvider)(request)
   }
 }
