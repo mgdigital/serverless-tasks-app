@@ -7,9 +7,6 @@ export const pool = new Pool()
 
 export const clientProvider = poolClientProvider(pool)
 
-/**
- * Generate a universally unique ID.
- */
 export const uuidGenerator = (): string =>
   uuid()
 
