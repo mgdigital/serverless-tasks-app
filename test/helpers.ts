@@ -1,4 +1,6 @@
-const context = {
+import type AWSLambda from 'aws-lambda'
+
+export const context = {
   awsRequestId: '',
   invokeid: '',
   logGroupName: '',
@@ -15,4 +17,15 @@ const context = {
   invokedFunctionArn: '',
 }
 
-export default context
+export const event = {
+  httpMethod: 'GET',
+  headers: {},
+  resource: '/',
+  path: '/',
+  pathParameters: null,
+  queryStringParameters: null,
+  multiValueQueryStringParameters: null,
+  isBase64Encoded: false,
+  stageVariables: null,
+  body: null
+} as AWSLambda.APIGatewayEvent

@@ -36,11 +36,19 @@ function lambdaResponse({
   return response
 }
 
-export function errorResponse(json: JSON): Response {
+export function errorResponse(json: JSON, statusCode = 500): Response {
   return lambdaResponse({
     json,
-    statusCode: 500,
+    statusCode,
   })
+}
+
+export function methodNotAllowed(): Response {
+  return errorResponse({ message: 'Method not allowed' }, 403)
+}
+
+export function notFound(): Response {
+  return errorResponse({ message: 'Not found' }, 404)
 }
 
 export function corsErrorResponse(json: JSON): Response {
