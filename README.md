@@ -6,13 +6,13 @@
 - Start the database server with `docker-compose up`
 - Initialize database tables with `yarn db:initialize`
 - Run tests with `yarn test`
-- Start the API server with `yarn:serve`
+- Start the API server with `yarn serve`
 
 ## Making requests to the server
 
 ### Add a task
 
-```
+```sh
 curl --location --request PUT 'localhost:3000/dev/tasks' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -22,7 +22,7 @@ curl --location --request PUT 'localhost:3000/dev/tasks' \
 
 ### Add a task list
 
-```
+```sh
 curl --location --request PUT 'localhost:3000/dev/task-lists' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -32,7 +32,7 @@ curl --location --request PUT 'localhost:3000/dev/task-lists' \
 
 ### Update a task's title and status, and add it to a list
 
-```
+```sh
 curl --location --request PUT 'localhost:3000/dev/tasks' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -45,7 +45,7 @@ curl --location --request PUT 'localhost:3000/dev/tasks' \
 
 ### Remove a task from a list
 
-```
+```sh
 curl --location --request PUT 'localhost:3000/dev/tasks' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -53,3 +53,7 @@ curl --location --request PUT 'localhost:3000/dev/tasks' \
     "removeFromLists": ["d082dc01-d24a-4efd-a705-c45bb58ec0c5"]
 }'
 ```
+
+## Notes
+
+This app was based on https://github.com/postlight/serverless-typescript-starter
